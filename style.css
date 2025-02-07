@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Gorditas', cursive;
+  background-color: lightpink; /* Light pink background */
+  color: darkred; /* Dark red text */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background-color 2s, color 2s;
+}
+
+#screen {
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+#content h1 {
+  margin: 20px 0;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#content h1.visible {
+  opacity: 1;
+}
+
+/* Cute Buttons */
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px; /* Oval shape */
+  background-color: black; /* Black buttons */
+  color: white; /* White text on buttons */
+  transition: transform 0.2s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0; /* Initially hidden */
+}
+
+button.visible {
+  opacity: 1;
+  animation: pop 0.3s ease-in-out; /* Pop-up animation */
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Big Text for Final Message */
+#bigText {
+  font-size: 40px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#bigText.visible {
+  opacity: 1;
+}
+
+/* Dynamic Text Animation */
+@keyframes slideLeftToRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.dynamic-text {
+  position: absolute;
+  white-space: nowrap;
+  font-size: 30px;
+  font-weight: bold;
+  animation: slideLeftToRight 5s linear infinite;
+}
+
+/* Bouncing Text Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-10px);
+  }
+}
+
+.bouncing-text {
+  font-size: 40px;
+  font-weight: bold;
+  position: absolute;
+  white-space: nowrap;
+  animation: bounce 1s infinite, slideLeftToRight 10s linear infinite;
+}
